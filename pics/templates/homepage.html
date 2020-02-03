@@ -1,8 +1,40 @@
 {%extends 'base.html'%}
 {%block content%}
 {{block.super}}
-<h1> This works also.</h1>
-{%for pics_item in pics%}
-<img src="{{pics_item.image.url}}" alt="Image">
-{%endfor%}
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"> </div>
+    {%for pics_item in pics%}
+    <div class="col-md-5">
+      
+      <!-- Card Regular -->
+
+      <div class="card card-cascade">
+
+        <!-- Card image -->
+        <div class="view view-cascade overlay">
+          <img class="card-img-top" src="{{pics_item.image.url}}" alt="Card image cap">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+
+        <!-- Card content -->
+        <div class="card-body card-body-cascade text-center">
+          <!-- Title -->
+          <h6 class="font-weight-bold indigo-text py-2">{{pics_item.pic_name}}</h6>
+          <!-- Text -->
+          <button type="button" class="btn btn-circle btn-xl"><i class="fas fa-expand-arrows-alt"></i></button>
+
+        </div>
+
+      </div>
+      <!-- Card Regular -->
+      
+    </div>
+    {%endfor%}
+    <div class="col-md-1"></div>
+  </div>
+</div>
+
 {%endblock%}
