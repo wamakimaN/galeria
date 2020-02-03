@@ -5,15 +5,45 @@
   <div class="row">
     <div class="col-md-1"> </div>
     {%for pics_item in pics%}
+    <div class="modal fade" id="modal{{pics_item.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+
+        <!--Content-->
+        <div class="modal-content">
+
+          <!--Body-->
+          <div class="modal-body mb-0 p-0">
+
+            <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+              <img class="embed-responsive-item" src="{{pics_item.image.url}}"
+                allowfullscreen></img>
+            </div>
+
+          </div>
+
+          <!--Footer-->
+          <div class="modal-footer justify-content-center flex-column flex-md-row">
+            <span class="mr-4">Spread the word!</span>
+            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4"
+              data-dismiss="modal">Close</button>
+
+
+          </div>
+
+        </div>
+        <!--/.Content-->
+
+      </div>
+    </div>
     <div class="col-md-5">
-      
+
       <!-- Card Regular -->
 
       <div class="card card-cascade">
 
         <!-- Card image -->
         <div class="view view-cascade overlay">
-          <img class="card-img-top" src="{{pics_item.image.url}}" alt="Card image cap">
+          <img class="card-img-top" src="{{pics_item.image.url}}" alt="Card image cap" data-toggle = "modal" data-target="modal{{pics_item.id}}">
           <a>
             <div class="mask rgba-white-slight"></div>
           </a>
@@ -21,16 +51,14 @@
 
         <!-- Card content -->
         <div class="card-body card-body-cascade text-center">
-          <!-- Title -->
+
           <h6 class="font-weight-bold indigo-text py-2">{{pics_item.pic_name}}</h6>
-          <!-- Text -->
-          <button type="button" class="btn btn-circle btn-xl"><i class="fas fa-expand-arrows-alt"></i></button>
 
         </div>
 
       </div>
       <!-- Card Regular -->
-      
+
     </div>
     {%endfor%}
     <div class="col-md-1"></div>

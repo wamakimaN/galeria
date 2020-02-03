@@ -34,6 +34,10 @@ class Picture(models.Model):
   def save_pic(self):
     self.save()
 
+@classmethod
+def categ_news(cls,category):
+  categories = cls.objects.filter(category = category)
+
 
 
 
