@@ -7,7 +7,7 @@ class Category(models.Model):
 
   def __str__(self):
         return self.name
-
+  
 class Picture(models.Model):
   image = models.ImageField(upload_to = 'pictures/')
   pic_name = models.CharField(max_length =30)
@@ -16,6 +16,10 @@ class Picture(models.Model):
   
   def __str__(self):
         return self.pic_name
+
+  def save_pic(self):
+    self.save()
+
 
 
 
