@@ -7,12 +7,20 @@ class Category(models.Model):
 
   def __str__(self):
         return self.name
+
+  def save_category(self):
+    self.save()
   
 class Picture(models.Model):
   image = models.ImageField(upload_to = 'pictures/')
   pic_name = models.CharField(max_length =30)
   pic_desc =models.CharField(max_length =200)
   category = models.ForeignKey(Category)
+
+  @classmethod
+  def all_pics(cls):
+    pics = cls.objects.all()
+    return pics
   
   def __str__(self):
         return self.pic_name
