@@ -6,7 +6,7 @@ class Category(models.Model):
   description = models.CharField(max_length =200)
 
   @classmethod
-  def all_categs(cls):
+  def all_categs(cls,category):
     categories = cls.objects.all()
   
     return categories
@@ -34,10 +34,10 @@ class Picture(models.Model):
   def save_pic(self):
     self.save()
 
-@classmethod
-def categ_news(cls,category):
-  categories = cls.objects.filter(category = category)
-
+  @classmethod
+  def show_by_categs(cls, search_term):
+    pics = cls.objects.filter(category__icontains=search_term)
+    return pics
 
 
 

@@ -4,7 +4,8 @@ from . import views
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^$', views.home_page, name='homePage')
+    url(r'^$', views.home_page, name='homePage'),
+    url(r'^category/', views.category, name='showCategory'),
 ]
 
 if settings.DEBUG:
