@@ -17,7 +17,7 @@
         </a>
         <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
           {%for categories_item in categories%}
-          <a class="dropdown-item" href="{% url 'showCategory' %}">{{categories_item.name}}</a>
+          <a class="dropdown-item" href="{% url 'showCategory' %}">{{categories_item.category}}</a>
           {%endfor%}
         </div>
       </li>

@@ -10,8 +10,8 @@ def home_page(request):
   return render(request, 'homepage.html', {"title":title,"pics":pics, "categories":categories})
 
 def category(request):
-  if 'picture' in request.GET and request.GET["picture"]:
-    search_term = request.GET.get("picture")
+  if 'pics' in request.GET and request.GET["pics"]:
+    search_term = request.GET.get("pics")
     searched_pictures = Picture.show_by_categs(search_term)
     message = f"{search_term}"
 
